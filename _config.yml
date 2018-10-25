@@ -1,3 +1,4 @@
+
 # ---------------------------------------------------------------
 # Theme Core Configuration Settings
 # ---------------------------------------------------------------
@@ -80,7 +81,6 @@ footer:
     enable: true
     # Version info of Hexo after Hexo link (vX.X.X).
     version: true
-
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
     enable: true
@@ -126,7 +126,7 @@ index_with_subtitle: false
 menu:
   home: / || home
   #about: /about/ || user
-  #tags: /tags/ || tags
+  tags: /tags/ || tags
   #categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
@@ -143,11 +143,10 @@ menu_settings:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-#scheme: Gemini
-
+scheme: Gemini
 
 # ---------------------------------------------------------------
 # Sidebar Settings
@@ -201,9 +200,9 @@ avatar:
   # in theme directory(source/images): /images/avatar.gif
   # in site  directory(source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
-  url: #/images/avatar.gif
+  url: /images/avatar.jpg
   # If true, the avatar would be dispalyed in circle.
-  rounded: false
+  rounded: true
   # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
   opacity: 1
   # If true, the avatar would be rotated with the cursor.
@@ -227,8 +226,8 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right (only for Pisces | Gemini).
-  position: left
-  #position: right
+  #position: left
+  position: right
 
   # Manual define the sidebar width.
   # If commented, will be default for:
@@ -316,13 +315,13 @@ codeblock:
 # Wechat Subscriber
 #wechat_subscriber:
   #enabled: true
-  #qcode: /path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg
-  #description: ex. subscribe to my blog by scanning my public wechat account
+  #qcode: /images/wx.bmp # ex. /uploads/wechat-qcode.jpg
+  #description: 感谢您的支持。 # ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-#reward_comment: Donate comment here
-#wechatpay: /images/wechatpay.jpg
-#alipay: /images/alipay.jpg
+reward_comment: 坚持原创技术分享！
+wechatpay: /images/wx.bmp
+alipay: /images/zfb.bmp
 #bitcoin: /images/bitcoin.png
 
 # Related popular posts
@@ -481,7 +480,7 @@ pangu: false
 #swiftype_key: 
 
 # Baidu Analytics ID
-#baidu_analytics: 
+baidu_analytics: c4ab6b6b1e0f19fcf09f89efda00bf46
 
 # Growingio Analytics ID
 # Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com
@@ -505,10 +504,10 @@ changyan:
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
 valine:
-  enable: false # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  enable: true # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.
+  appid:  BuUYs3qUwu9KeNYHg6v4o3cp-gzGzoHsz # your leancloud application appid
+  appkey: ItWENegJnEabGmDv8gd1kNev # your leancloud application appkey
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: Just go go # comment box placeholder
   avatar: mm # gravatar style
@@ -640,9 +639,9 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  enable: true
+  app_id: BuUYs3qUwu9KeNYHg6v4o3cp-gzGzoHsz
+  app_key: ItWENegJnEabGmDv8gd1kNev
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in lc counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set the `security` to `false`.
@@ -710,13 +709,13 @@ algolia_search:
     per_page: 10
   labels:
     input_placeholder: Search for Posts
-    hits_empty: "We didn't find any results for the search: ${query}"
-    hits_stats: "${hits} results found in ${time} ms"
+    hits_empty: "我们没有找到任何搜索结果: ${query}"
+    hits_stats: "找到约${hits}条结果，用时${time} ms"
 
 # Local search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
