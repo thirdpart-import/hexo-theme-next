@@ -129,6 +129,7 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
+  #top: /top/  || signal
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -137,6 +138,10 @@ menu:
 menu_settings:
   icons: true
   badges: false
+
+recent_posts_title: 近期文章
+recent_posts_layout: block
+recent_posts: true
 
 # ---------------------------------------------------------------
 # Scheme Settings
