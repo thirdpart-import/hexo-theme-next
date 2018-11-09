@@ -97,6 +97,15 @@ footer:
   # Any custom text can be defined here.
   #custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
 
+# Creative Commons 4.0 International License.
+# https://creativecommons.org/share-your-work/licensing-types-examples
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+creative_commons:
+  license: by-nc-sa
+  sidebar: false
+  post: false
+
+
 # ---------------------------------------------------------------
 # SEO Settings
 # ---------------------------------------------------------------
@@ -112,6 +121,9 @@ seo: false
 # If true, will add site-subtitle to index page, added in main hexo config.
 # subtitle: Subtitle
 index_with_subtitle: false
+
+# Automatically add external URL with BASE64 encrypt & decrypt.
+exturl: false
 
 
 # ---------------------------------------------------------------
@@ -168,6 +180,7 @@ site_state: true
 #social:
   #GitHub: https://github.com/yourname || github
   #E-Mail: mailto:yourname@gmail.com || envelope
+  #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -181,10 +194,6 @@ social_icons:
   enable: true
   icons_only: false
   transition: false
-  # Dependencies: exturl: true in Tags Settings section below.
-  # To encrypt links above use https://www.base64encode.org
-  # Example encoded link: `GitHub: aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQ= || github`
-  exturl: false
 
 # Follow me on GitHub banner in right-top corner.
 # Usage: `permalink || title`
@@ -198,7 +207,7 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 #links:
-  #Title: http://example.com/
+  #Title: http://example.com
 
 # Sidebar Avatar
 avatar:
@@ -222,12 +231,6 @@ toc:
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
-
-# Creative Commons 4.0 International License.
-# http://creativecommons.org/
-# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-#creative_commons: by-nc-sa
-#creative_commons:
 
 sidebar:
   # Sidebar Position, available value: left | right (only for Pisces | Gemini).
@@ -324,11 +327,14 @@ codeblock:
   #description: 感谢您的支持。 # ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-reward_comment: 坚持原创技术分享！
-wechatpay: /images/wx.bmp
-alipay: /images/zfb.bmp
-#bitcoin: /images/bitcoin.png
-
+# If true, reward would be displayed in every article by default.
+# And you can show or hide one article specially through add page variable `reward: true/false`.
+reward:
+  enable: true
+  comment: 坚持原创技术分享！
+  wechatpay: /images/wx.bmp
+  alipay: /images/zfb.bmp
+  #bitcoin: /images/bitcoin.png
 # Related popular posts
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
 related_posts:
@@ -341,11 +347,6 @@ related_posts:
     #isDate: false
     #isImage: false
     #isExcerpt: false
-
-# Declare license on posts
-post_copyright:
-  enable: false
-  license: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a>
 
 # Post edit
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
@@ -472,6 +473,24 @@ math:
     # CDNJS, provided by cloudflare, maybe the best CDN, but not works in China
     #cdn: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css
 
+# PDF Support
+# Dependencies: https://github.com/theme-next/theme-next-pdf
+pdf:
+  enable: false
+
+  # Default(true) will load PDFObject/PDF.js script on demand
+  # That is it only render those page who has 'pdf: true' in Front Matter.
+  # If you set it to false, it will load PDFObject/PDF.js srcipt EVERY PAGE.
+  per_page: true
+
+  height: 500px
+
+  pdfobject:
+    # Use 2.1.1 as default, jsdelivr as default CDN, works everywhere even in China
+    cdn: //cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js
+    # CDNJS, provided by cloudflare, maybe the best CDN, but not works in China
+    #cdn: //cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js
+
 # Han Support
 # Dependencies: https://github.com/theme-next/theme-next-han
 han: false
@@ -482,11 +501,10 @@ han: false
 pangu: false
 
 # Swiftype Search API Key
-#swiftype_key: 
+#swiftype_key:
 
 # Baidu Analytics ID
 baidu_analytics: c4ab6b6b1e0f19fcf09f89efda00bf46
-
 # Growingio Analytics ID
 # Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com
 #growingio_analytics: #your projectId
@@ -525,7 +543,7 @@ valine:
 #livere_uid: your uid
 
 # Gitment
-# Introduction: https://imsun.net/posts/gitment-introduction/
+# Introduction: https://imsun.net/posts/gitment-introduction
 gitment:
   enable: false
   mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
@@ -547,7 +565,7 @@ gitment:
 #baidushare:
 ##  type: button
 
-# addthis Share, see: https://www.addthis.com/
+# addthis Share, see: https://www.addthis.com
 #add_this_id:
 
 # NeedMoreShare2
@@ -579,14 +597,14 @@ needmoreshare2:
       networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
 
 # Google Webmaster tools verification setting
-# See: https://www.google.com/webmasters/
+# See: https://www.google.com/webmasters
 #google_site_verification:
 
 # Google Analytics
 #google_analytics:
 
 # Bing Webmaster tools verification setting
-# See: https://www.bing.com/webmaster/
+# See: https://www.bing.com/webmaster
 #bing_site_verification:
 
 # Yandex Webmaster tools verification setting
@@ -664,7 +682,7 @@ firestore:
   bluebird: false #enable this if you want to include bluebird 3.5.1(core version) Promise polyfill
 
 # Show Views/Visitors of the website/page with busuanzi.
-# Get more information on http://ibruce.info/2015/04/04/busuanzi/
+# Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
   enable: false
   total_visitors: true
@@ -743,11 +761,6 @@ bookmark:
 # ---------------------------------------------------------------
 # Tags Settings
 # ---------------------------------------------------------------
-
-# External URL with BASE64 encrypt & decrypt.
-# Usage: {% exturl text url "title" %}
-# Alias: {% extlink text url "title" %}
-exturl: false
 
 # Note tag (bs-callout).
 note:
@@ -843,7 +856,13 @@ pace_theme: pace-theme-minimal
 
 # Canvas-nest
 # Dependencies: https://github.com/theme-next/theme-next-canvas-nest
-canvas_nest: false
+canvas_nest:
+  enable: false
+  onmobile: true # display on mobile or not
+  color: '0,0,255' # RGB values, use ',' to separate
+  opacity: 0.5 # the opacity of line: 0~1
+  zIndex: -1 # z-index property of the background
+  count: 99 # the number of lines
 
 # JavaScript 3D library.
 # Dependencies: https://github.com/theme-next/theme-next-three
@@ -877,14 +896,14 @@ vendors:
   _internal: lib
 
   # Internal version: 2.1.3
-  # Example: 
+  # Example:
   # jquery: //cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js
   # jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
   jquery:
 
   # Internal version: 2.1.5
-  # See: http://fancyapps.com/fancybox/
-  # Example: 
+  # See: http://fancyapps.com/fancybox
+  # Example:
   # fancybox: //cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/js/jquery.fancybox.pack.js
   # fancybox_css: //cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/css/jquery.fancybox.min.css
   # fancybox: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js
@@ -900,7 +919,9 @@ vendors:
 
   # Internal version: 1.9.7
   # See: https://github.com/tuupola/jquery_lazyload
-  # lazyload: //cdn.jsdelivr.net/npm/jquery_lazyload@1.9.3/jquery.lazyload.min.js
+  # Example:
+  # lazyload: //cdn.jsdelivr.net/npm/jquery_lazyload@1.9.7/jquery.lazyload.min.js
+  # lazyload: //cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js
   lazyload:
 
   # Internal version: 1.2.1
@@ -912,27 +933,27 @@ vendors:
 
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
+  # Example:
   # velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1.2.1/velocity.ui.min.js
   # velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js
   velocity_ui:
 
   # Internal version: 0.7.9
-  # See: https://faisalman.github.io/ua-parser-js/
-  # Example: 
+  # See: https://faisalman.github.io/ua-parser-js
+  # Example:
   # ua_parser: //cdn.jsdelivr.net/npm/ua-parser-js@0.7.17/src/ua-parser.min.js
   # ua_parser: //cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.9/ua-parser.min.js
   ua_parser:
 
   # Internal version: 4.6.2
-  # See: http://fontawesome.io/
   # Example: 
   # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css
   fontawesome:
 
-  # Internal version: 1
-  # https://www.algolia.com
-  # Example: 
+  # Internal version: 2.4.1
+  # See: https://www.algolia.com
+  # Example:
   # algolia_instant_js: //cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js
   # algolia_instant_css: //cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css
   algolia_instant_js:
@@ -949,15 +970,16 @@ vendors:
   pace_css:
 
   # Internal version: 1.0.0
-  # https://github.com/hustcc/canvas-nest.js
-  # Example: 
-  # canvas_nest: //cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js
-  # canvas_nest: //cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.min.js
+  # See: https://github.com/theme-next/theme-next-canvas-nest
+  # Example:
+  # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js
+  # canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest-nomobile.min.js
   canvas_nest:
+  canvas_nest_nomobile:
 
   # Internal version: 1.0.0
   # See: https://github.com/theme-next/theme-next-three
-  # Example: 
+  # Example:
   # three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1.0.0/three.min.js
   # three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1.0.0/three-waves.min.js
   # canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1.0.0/canvas_lines.min.js
@@ -968,44 +990,45 @@ vendors:
   canvas_sphere:
 
   # Internal version: 1.0.0
-  # https://github.com/zproo/canvas-ribbon
+  # See: https://github.com/zproo/canvas-ribbon
   canvas_ribbon:
 
   # Internal version: 3.3.0
-  # https://github.com/ethantw/Han
+  # See: https://github.com/ethantw/Han
   Han:
 
   # Internal version: 3.3.0
-  # https://github.com/vinta/pangu.js
-  # Example: 
+  # See: https://github.com/vinta/pangu.js
+  # Example:
   # pangu: //cdn.jsdelivr.net/npm/pangu@3.3.0/dist/browser/pangu.min.js
   # pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/3.3.0/pangu.min.js
   pangu:
 
   # needMoreShare2
-  # https://github.com/revir/need-more-share2
-  # Example: 
+  # See: https://github.com/revir/need-more-share2
+  # Example:
   # needmoreshare2_js: //cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1.0.0/needsharebutton.min.js
   # needmoreshare2_css: //cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1.0.0/needsharebutton.min.css
   needmoreshare2_js:
   needmoreshare2_css:
 
   # bookmark
-  # Internal version: 1.0.0
-  # https://github.com/theme-next/theme-next-bookmark
-  # Example: 
+  # See: https://github.com/theme-next/theme-next-bookmark
+  # Example:
   # bookmark: //cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@1.0.0/bookmark.min.js
   bookmark:
 
   # reading_progress
-  # Internal version: 1.0
-  # https://github.com/theme-next/theme-next-reading-progress
-  # Example: 
+  # See: https://github.com/theme-next/theme-next-reading-progress
+  # Example:
   # reading_progress: //cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js
   reading_progress:
 
   # valine comment
-  # Example: https://cdn.jsdelivr.net/npm/valine@1.1.8/dist/Valine.min.js
+  # See: https://github.com/xCss/Valine
+  # Example:
+  # valine: //cdn.jsdelivr.net/npm/valine@1.3.3/dist/Valine.min.js
+  # valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.3/Valine.min.js
   valine:
 
 
